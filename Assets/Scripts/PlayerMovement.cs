@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirection = move.ReadValue<Vector3>();
+
     }
 
     private void FixedUpdate()
