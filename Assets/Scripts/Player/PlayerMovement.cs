@@ -11,8 +11,10 @@ public class PlayerMovement : MonoBehaviour
     public PlayerInputActions playerControls;
 
     Vector3 moveDirection = Vector3.zero;
+
     private InputAction move;
     private InputAction fire;
+
 
     private void Awake()
     {
@@ -24,11 +26,13 @@ public class PlayerMovement : MonoBehaviour
         move = playerControls.Player.Move;
         move.Enable();
 
+
     }
 
     private void OnDisable()
     {
         move.Disable();
+
 
     }
     // Start is called before the first frame update
@@ -41,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveDirection = move.ReadValue<Vector3>();
+
 
     }
 
