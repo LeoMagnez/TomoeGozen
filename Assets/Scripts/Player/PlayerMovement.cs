@@ -26,6 +26,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
+    [Header("Animations")]
+    [SerializeField]
+    private Animator playerAnimator;
+
+    private bool _hasAnimator;
+
 
     private void OnEnable()
     {
@@ -40,10 +46,19 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
-
+        _hasAnimator = TryGetComponent(out playerAnimator);
     }
 
     void Update()
+    {
+        _hasAnimator = TryGetComponent(out playerAnimator);
+        Move();
+
+
+
+    }
+
+    public void Move()
     {
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
@@ -56,17 +71,22 @@ public class PlayerMovement : MonoBehaviour
 
         controller.Move(move * Time.deltaTime * playerSpeed);
 
-
-
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
 
-        if(movement != Vector2.zero)
+        if (movement != Vector2.zero)
         {
             float targetAngle = Mathf.Atan2(movement.x, movement.y) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.Euler(0f, targetAngle, 0f);
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * rotationSpeed);
+            playerAnimator.SetBool("isRunning", true);
         }
+
+        else
+        {
+            playerAnimator.SetBool("isRunning", false);
+        }
+
     }
 }
 
