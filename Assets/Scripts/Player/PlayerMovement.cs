@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -9,8 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [Header("Mouvement")]
     [SerializeField]
     private InputActionReference movementControls;
-
-
 
     [SerializeField]
     private float playerSpeed = 2.0f;
@@ -26,6 +26,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 playerVelocity;
     private bool groundedPlayer;
 
+    [Header("Attacks")]
+    [SerializeField]
+    private InputActionReference attackControls;
+
+
+
+
+
     [Header("Animations")]
     [SerializeField]
     private Animator playerAnimator;
@@ -36,11 +44,13 @@ public class PlayerMovement : MonoBehaviour
     private void OnEnable()
     {
         movementControls.action.Enable();
+        attackControls.action.Enable();
     }
 
     private void OnDisable()
     {
         movementControls.action.Disable();
+        attackControls.action.Disable();
     }
 
     private void Start()
@@ -53,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _hasAnimator = TryGetComponent(out playerAnimator);
         Move();
-
+        Attack();
 
 
     }
@@ -87,6 +97,24 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("isRunning", false);
         }
 
+    }
+
+    public void Attack()
+    {
+        if (attackControls.action.triggered && attackControls.action.ReadValue<float>() > 0)
+        {
+            
+                playerAnimator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            //Permet à l'animation de se finir avant de transitionner
+            if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !playerAnimator.IsInTransition(0)) 
+                playerAnimator.SetBool("isAttacking", false);
+            
+            
+        }
+        
     }
 }
 

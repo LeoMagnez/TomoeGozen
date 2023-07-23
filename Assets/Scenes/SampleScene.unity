@@ -1854,6 +1854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementControls: {fileID: 8622071812632024767, guid: 16b375e31bbd00c4281dc21acc38000e,
     type: 3}
+  attackControls: {fileID: -7088177810176382216, guid: 16b375e31bbd00c4281dc21acc38000e,
+    type: 3}
   playerSpeed: 20
   rotationSpeed: 10
   jumpHeight: 1
