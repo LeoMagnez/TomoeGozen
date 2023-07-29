@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private InputActionReference attackControls;
 
     [SerializeField]
-    private float elapsedAttackTime = 2f;
+    private float elapsedAttackTime = 0.5f;
 
     [SerializeField]
     private int attackCounter;
@@ -161,9 +161,9 @@ public class PlayerMovement : MonoBehaviour
         {
             attackCounter = 0;
             isAttacking = false;
-            elapsedAttackTime = 2;
+            elapsedAttackTime = 0.5f;
             playerAnimator.SetBool("isAttacking", false);
-            playerAnimator.SetBool("Attack2", false);
+            //playerAnimator.SetBool("Attack2", false);
         }
 
     }

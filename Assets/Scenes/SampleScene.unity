@@ -2051,6 +2051,8 @@ MonoBehaviour:
   gravityValue: -9.81
   attackControls: {fileID: -7088177810176382216, guid: 16b375e31bbd00c4281dc21acc38000e,
     type: 3}
+  elapsedAttackTime: 0.5
+  attackCounter: 0
   playerAnimator: {fileID: 0}
 --- !u!1 &2022629136 stripped
 GameObject:
