@@ -100,7 +100,7 @@ public class EntitySpawner : MonoBehaviour
         }
         yield return null;
     }
-
+#if UNITY_EDITOR
     public void OnDrawGizmosSelected()
     {
         //à simplifier
@@ -117,7 +117,7 @@ public class EntitySpawner : MonoBehaviour
 
         Handles.DrawWireDisc(transform.position, transform.up, radius);
     }
-
+#endif
     protected Vector3 GetSpawningPos()
     {
         Vector3 spawnVector = transform.forward * Random.Range(0.5f, radius);

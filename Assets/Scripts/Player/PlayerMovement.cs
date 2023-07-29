@@ -30,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private InputActionReference attackControls;
 
+    [SerializeField]
+    private float elapsedAttackTime = 2f;
+
+    [SerializeField]
+    private int attackCounter;
+
+    private bool isAttacking;
 
 
 
@@ -57,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = gameObject.GetComponent<CharacterController>();
         _hasAnimator = TryGetComponent(out playerAnimator);
+        attackCounter = 0;
     }
 
     void Update()
@@ -64,7 +72,6 @@ public class PlayerMovement : MonoBehaviour
         _hasAnimator = TryGetComponent(out playerAnimator);
         Move();
         Attack();
-
 
     }
 
@@ -101,20 +108,64 @@ public class PlayerMovement : MonoBehaviour
 
     public void Attack()
     {
+        if (isAttacking)
+        {
+            elapsedAttackTime -= Time.deltaTime;
+        }
+
         if (attackControls.action.triggered && attackControls.action.ReadValue<float>() > 0)
         {
-            
-                playerAnimator.SetBool("isAttacking", true);
+            Debug.Log(attackCounter);
+
+            isAttacking = true;
+
+
+            switch (attackCounter)
+            {
+                case 0:
+                    playerAnimator.SetBool("isAttacking", true);
+                    attackCounter += 1;
+
+                    break;
+                case 1:
+                    playerAnimator.SetBool("Attack2", true);
+                    //attackCounter += 1;
+                    attackCounter = 0;
+
+                    break;
+
+                default:
+                    attackCounter = 0;
+                    isAttacking = false;
+                    break;
+
+            }
+
+
         }
         else
         {
             //Permet à l'animation de se finir avant de transitionner
-            if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !playerAnimator.IsInTransition(0)) 
+            if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !playerAnimator.IsInTransition(0))
+            {
                 playerAnimator.SetBool("isAttacking", false);
+                playerAnimator.SetBool("Attack2", false);
+            } 
+                
+
             
             
         }
-        
+
+        if (elapsedAttackTime <= 0)
+        {
+            attackCounter = 0;
+            isAttacking = false;
+            elapsedAttackTime = 2;
+            playerAnimator.SetBool("isAttacking", false);
+            playerAnimator.SetBool("Attack2", false);
+        }
+
     }
 }
 
