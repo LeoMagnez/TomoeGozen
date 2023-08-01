@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isAttacking;
 
-
+    [SerializeField] private bool lockAnimation;
 
 
     [Header("Animations")]
@@ -62,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        lockAnimation = false;
         controller = gameObject.GetComponent<CharacterController>();
         _hasAnimator = TryGetComponent(out playerAnimator);
         attackCounter = 0;
@@ -108,10 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Attack()
     {
-        if (isAttacking)
-        {
-            elapsedAttackTime -= Time.deltaTime;
-        }
+
 
         if (attackControls.action.triggered && attackControls.action.ReadValue<float>() > 0)
         {
@@ -123,14 +121,33 @@ public class PlayerMovement : MonoBehaviour
             switch (attackCounter)
             {
                 case 0:
-                    playerAnimator.SetBool("isAttacking", true);
-                    attackCounter += 1;
+                    if (!lockAnimation)
+                    {
+                        playerAnimator.SetBool("isAttacking", true);
+                        attackCounter += 1;
+                        elapsedAttackTime = 0.5f;
+                    }
 
                     break;
                 case 1:
-                    playerAnimator.SetBool("Attack2", true);
-                    //attackCounter += 1;
-                    attackCounter = 0;
+
+                    if (!lockAnimation)
+                    {
+                        playerAnimator.SetBool("Attack2", true);
+                        attackCounter += 1;
+                        elapsedAttackTime = 0.5f;
+                    }
+                    break;
+
+                case 2:
+
+                    if (!lockAnimation)
+                    {
+                        playerAnimator.SetBool("Attack3", true);
+                        //attackCounter += 1;
+                        elapsedAttackTime = 0.8f;
+                        attackCounter = 0;
+                    }
 
                     break;
 
@@ -143,18 +160,24 @@ public class PlayerMovement : MonoBehaviour
 
 
         }
-        else
+        /*else
         {
             //Permet à l'animation de se finir avant de transitionner
             if (playerAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !playerAnimator.IsInTransition(0))
             {
                 playerAnimator.SetBool("isAttacking", false);
                 playerAnimator.SetBool("Attack2", false);
+                playerAnimator.SetBool("Attack3", false);
             } 
                 
 
             
             
+        }*/
+
+        if (isAttacking)
+        {
+            elapsedAttackTime -= Time.deltaTime;
         }
 
         if (elapsedAttackTime <= 0)
@@ -163,9 +186,23 @@ public class PlayerMovement : MonoBehaviour
             isAttacking = false;
             elapsedAttackTime = 0.5f;
             playerAnimator.SetBool("isAttacking", false);
-            //playerAnimator.SetBool("Attack2", false);
+            lockAnimation = false;
+            playerAnimator.SetBool("Attack2", false);
+            playerAnimator.SetBool("Attack3", false);
         }
 
     }
+
+    public void LockAnim()
+    {
+        lockAnimation = true;
+    }
+
+    public void UnlockAnim()
+    {
+        lockAnimation = false;
+    }
+
+
 }
 
