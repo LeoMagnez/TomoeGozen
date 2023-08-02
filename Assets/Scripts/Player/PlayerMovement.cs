@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private InputActionReference movementControls;
 
     [SerializeField]
-    private float playerSpeed = 2.0f;
+    private float playerSpeed = 20.0f;
 
     [SerializeField]
-    private float rotationSpeed = 2f;
+    private float rotationSpeed = 10f;
     [SerializeField]
     private float jumpHeight = 1.0f;
     [SerializeField]
@@ -126,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
                         playerAnimator.SetBool("isAttacking", true);
                         attackCounter += 1;
                         elapsedAttackTime = 0.5f;
+                        
                     }
 
                     break;
@@ -201,6 +202,18 @@ public class PlayerMovement : MonoBehaviour
     public void UnlockAnim()
     {
         lockAnimation = false;
+    }
+
+    public void LockSpeed()
+    {
+        playerSpeed = 0f;
+        rotationSpeed = 0f;
+    }
+
+    public void UnlockSpeed()
+    {
+        playerSpeed = 20.0f;
+        rotationSpeed = 10.0f;
     }
 
 
