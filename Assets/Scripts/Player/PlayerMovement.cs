@@ -146,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         playerAnimator.SetBool("Attack3", true);
                         //attackCounter += 1;
-                        elapsedAttackTime = 0.8f;
+                        elapsedAttackTime = 0.4f;
                         attackCounter = 0;
                     }
 
@@ -155,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
                 default:
                     attackCounter = 0;
                     isAttacking = false;
+                    lockAnimation = false;
                     break;
 
             }
