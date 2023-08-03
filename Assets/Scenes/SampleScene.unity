@@ -2659,11 +2659,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementControls: {fileID: 8622071812632024767, guid: 16b375e31bbd00c4281dc21acc38000e,
     type: 3}
-  playerSpeed: 20
+  playerSpeed: 15
   rotationSpeed: 20
   dashControls: {fileID: -1530189785010602837, guid: 16b375e31bbd00c4281dc21acc38000e,
     type: 3}
-  dashSpeed: 100
+  dashSpeed: 75
   dashCounter: 0
   resetDashCooldown: 0
   dashCooldown: 0

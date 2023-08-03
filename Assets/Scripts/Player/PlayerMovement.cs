@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField]
-    private float playerSpeed = 20.0f;
+    private float playerSpeed = 15.0f;
 
     [SerializeField]
     private float rotationSpeed = 20f;
@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(resetDashCooldown >= 4f)
+        if(resetDashCooldown >= 2f)
         {
             dashCounter = 0;
             resetDashCooldown = 0;
@@ -277,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void UnlockSpeed()
     {
-        playerSpeed = 20.0f;
+        playerSpeed = 15.0f;
         rotationSpeed = 20.0f;
     }
 
@@ -294,7 +294,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(0.15f);
         playerAnimator.SetBool("isDashing", false);
-        playerSpeed = 20.0f;
+        playerSpeed = 15.0f;
         rotationSpeed = 20.0f;
         dashTrail.GetComponent<TrailRenderer>().emitting = false;
     }
