@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
@@ -12,14 +13,34 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private InputActionReference movementControls;
 
+
+
     [SerializeField]
     private float playerSpeed = 20.0f;
 
     [SerializeField]
-    private float rotationSpeed = 10f;
+    private float rotationSpeed = 20f;
+
+    [Header("Dash")]
     [SerializeField]
+    private InputActionReference dashControls;
+    [SerializeField]
+    private float dashSpeed = 50.0f;
+
+    [SerializeField]
+    private int dashCounter;
+
+    [SerializeField]
+    private float resetDashCooldown = 0f;
+
+    [SerializeField]
+    private float dashCooldown = 0f;
+
+    [SerializeField]
+    private GameObject dashTrail;
+
     private float jumpHeight = 1.0f;
-    [SerializeField]
+
     private float gravityValue = -9.81f;
 
     private CharacterController controller;
@@ -48,16 +69,19 @@ public class PlayerMovement : MonoBehaviour
     private bool _hasAnimator;
 
 
+
     private void OnEnable()
     {
         movementControls.action.Enable();
         attackControls.action.Enable();
+        dashControls.action.Enable();
     }
 
     private void OnDisable()
     {
         movementControls.action.Disable();
         attackControls.action.Disable();
+        dashControls.action.Disable();
     }
 
     private void Start()
@@ -66,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
         _hasAnimator = TryGetComponent(out playerAnimator);
         attackCounter = 0;
+        dashCounter = 0;
     }
 
     void Update()
@@ -73,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
         _hasAnimator = TryGetComponent(out playerAnimator);
         Move();
         Attack();
+        Dash();
 
     }
 
@@ -105,6 +131,42 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("isRunning", false);
         }
 
+
+
+    }
+
+    public void Dash()
+    {
+        if (dashControls.action.triggered && dashControls.action.ReadValue<float>() > 0 && dashCooldown <= 0f)
+        {
+            dashCounter += 1;
+            
+            playerAnimator.SetBool("isDashing", true);
+        }
+
+        if(dashCounter >= 1)
+        {
+            resetDashCooldown += Time.deltaTime;
+        }
+
+        if (dashCounter >= 2)
+        {
+            dashCooldown += Time.deltaTime;
+
+            if (dashCooldown >= 2)
+            {
+                dashCounter = 0;
+                dashCooldown = 0;
+                resetDashCooldown = 0;
+            }
+        }
+
+        if(resetDashCooldown >= 4f)
+        {
+            dashCounter = 0;
+            resetDashCooldown = 0;
+            dashCooldown = 0f;
+        }
     }
 
     public void Attack()
@@ -195,6 +257,8 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //ANIMATION EVENTS//
+
     public void LockAnim()
     {
         lockAnimation = true;
@@ -214,9 +278,26 @@ public class PlayerMovement : MonoBehaviour
     public void UnlockSpeed()
     {
         playerSpeed = 20.0f;
-        rotationSpeed = 10.0f;
+        rotationSpeed = 20.0f;
     }
 
+    public void Dashing()
+    {
+
+        playerSpeed = dashSpeed;
+        dashTrail.GetComponent<TrailRenderer>().emitting = true;
+        rotationSpeed = 0f;
+        StartCoroutine(WaitForEndOfDash());
+    }
+
+    public IEnumerator WaitForEndOfDash()
+    {
+        yield return new WaitForSeconds(0.15f);
+        playerAnimator.SetBool("isDashing", false);
+        playerSpeed = 20.0f;
+        rotationSpeed = 20.0f;
+        dashTrail.GetComponent<TrailRenderer>().emitting = false;
+    }
 
 }
 
