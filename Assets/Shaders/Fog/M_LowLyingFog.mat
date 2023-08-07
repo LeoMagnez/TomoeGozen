@@ -29,11 +29,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FogNoise:
-        m_Texture: {fileID: 2800000, guid: ab2c5cd40a60184438f68fa6f4b72aea, type: 3}
+        m_Texture: {fileID: 2800000, guid: 75d94031ab477cf498b11d726f5a42ab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTexture:
-        m_Texture: {fileID: 2800000, guid: 1dc9d77de5870e645ab9c9280b92f65f, type: 3}
+        m_Texture: {fileID: 2800000, guid: cf30eba24439eb8428a032e55c8be8c2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -50,15 +50,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ColorPower: 0.47
+    - _ColorPower: 0.25
     - _DepthFade: 3.69
     - _FogHeight: 5
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
     - _FogNoiseTile: {r: 3, g: 3, b: 0, a: 0}
-    - _FogOffsetSpeed: {r: 0.004, g: 0.001, b: 0, a: 0}
-    - _MaskOffsetSpeed: {r: 0.08, g: 0.08, b: 0, a: 0}
+    - _FogOffsetSpeed: {r: 0.03, g: 0.01, b: 0, a: 0}
+    - _MaskOffsetSpeed: {r: 0.5, g: 0.5, b: 0, a: 0}
     - _MaskTile: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1665591695620280820
