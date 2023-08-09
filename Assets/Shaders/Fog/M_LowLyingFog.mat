@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _ColorPower: 0.25
     - _DepthFade: 3.69
-    - _FogHeight: 5
+    - _FogHeight: 2.78
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
