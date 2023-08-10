@@ -116,8 +116,8 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FaceScale: 0.79
-    - _FlameNoiseStr: 1
-    - _FlamePower: 1
+    - _FlameNoiseStr: 0
+    - _FlamePower: 1.04
     - _FlameSize: 0
     - _FresnelPower: 0
     - _GlossMapScale: 0
