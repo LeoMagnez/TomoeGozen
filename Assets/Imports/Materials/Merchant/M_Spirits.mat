@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Merchant
+  m_Name: M_Spirits
   m_Shader: {fileID: -6465566751694194690, guid: 31027334a42c18a49ac2a82ac33d61fe,
     type: 3}
   m_Parent: {fileID: 0}
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTexture:
-        m_Texture: {fileID: 2800000, guid: ad191d6cb04135a499c32a9da0e1c333, type: 3}
+        m_Texture: {fileID: 2800000, guid: 17f75763e1abe70499447af204480e59, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -70,14 +70,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2DLOD_9ab903c8e76542938793d9ff170809c0_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 041c4428f2dde8949a8b031ed0a951a8, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_78652d58f539443ea41ae5ca86a0135f_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 6974d10a0dc13574a91d20d36e3e5900, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_9982209ee4014625a83e50a3e6d7ef99_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: ad191d6cb04135a499c32a9da0e1c333, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -102,7 +94,7 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlinkingSpeed: 0.5
+    - _BlinkingSpeed: 1
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -110,15 +102,14 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DisplacementSpeed: 0.1
-    - _DisplacementStr: 5
+    - _DisplacementSpeed: 0.2
+    - _DisplacementStr: 10
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FaceScale: 0.79
-    - _FlameNoiseStr: 1
-    - _FlamePower: 1
-    - _FlameSize: 0
+    - _FlameNoiseStr: 1.65
+    - _FlamePower: 2.37
+    - _FlameSize: 0.13
     - _FresnelPower: 0
     - _GlossMapScale: 0
     - _Glossiness: 0
@@ -139,14 +130,14 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BorderColor: {r: 0.4839999, g: 3.9999995, b: 3.263665, a: 1}
-    - _BorderSize: {r: 2, g: 5, b: 0, a: 0}
+    - _BorderColor: {r: 12.708291, g: 12.708291, b: 12.708291, a: 1}
+    - _BorderSize: {r: 5, g: 10, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0, g: 1.3350784, b: 1.3280883, a: 1}
+    - _FresnelColor: {r: 0, g: 1, b: 0.8384063, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &8808920642232513384
+--- !u!114 &2453936137502722228
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
