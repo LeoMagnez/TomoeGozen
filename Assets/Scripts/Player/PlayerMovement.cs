@@ -68,6 +68,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool _hasAnimator;
 
+    [Header("VFX")]
+    public List<Slash> slashes = new List<Slash>();
+
 
 
     private void OnEnable()
@@ -186,6 +189,7 @@ public class PlayerMovement : MonoBehaviour
                     if (!lockAnimation)
                     {
                         playerAnimator.SetBool("isAttacking", true);
+                        //StartCoroutine(SlashAttack(0));
                         attackCounter += 1;
                         elapsedAttackTime = 0.5f;
                         
@@ -197,6 +201,7 @@ public class PlayerMovement : MonoBehaviour
                     if (!lockAnimation)
                     {
                         playerAnimator.SetBool("Attack2", true);
+                        //StartCoroutine(SlashAttack(1));
                         attackCounter += 1;
                         elapsedAttackTime = 0.5f;
                     }
@@ -207,6 +212,7 @@ public class PlayerMovement : MonoBehaviour
                     if (!lockAnimation)
                     {
                         playerAnimator.SetBool("Attack3", true);
+                        //StartCoroutine(SlashAttack(2));
                         //attackCounter += 1;
                         elapsedAttackTime = 0.4f;
                         attackCounter = 0;
@@ -299,5 +305,38 @@ public class PlayerMovement : MonoBehaviour
         dashTrail.GetComponent<TrailRenderer>().emitting = false;
     }
 
+    public void Slash(int attackNumber)
+    {
+        switch (attackNumber)
+        {
+            case 0:
+                StartCoroutine(SlashAttack(0));
+                break;
+            case 1:
+                StartCoroutine(SlashAttack(1));
+                break;
+            case 2:
+                StartCoroutine(SlashAttack(2));
+                break;
+
+        }
+    }
+    //VFX
+
+    public IEnumerator SlashAttack(int slashobj)
+    {
+        slashes[slashobj].slashObject.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        slashes[slashobj].slashObject.SetActive(false);
+    }
+
+}
+
+//VFX CLASS
+
+[System.Serializable]
+public class Slash
+{
+    public GameObject slashObject;
 }
 
