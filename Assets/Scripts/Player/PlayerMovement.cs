@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
-        if (dashControls.action.triggered && dashControls.action.ReadValue<float>() > 0 && dashCooldown <= 0f)
+        if (dashControls.action.triggered && dashControls.action.ReadValue<float>() > 0 && dashCooldown <= 0f && !lockAnimation)
         {
             dashCounter += 1;
             
