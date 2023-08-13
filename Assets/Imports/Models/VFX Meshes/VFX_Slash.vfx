@@ -14,12 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groupInfos: []
   stickyNoteInfos: []
-  categories: []
+  categories:
+  - name: BRIGHT SLASH
+    collapsed: 1
+  - name: DARK SLASH
+    collapsed: 1
+  - name: GENERAL
+    collapsed: 1
+  - name: CURVES
+    collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: -5
+    x: -25
     y: -190
-    width: 3081
+    width: 3101
     height: 1627
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -72,13 +80,28 @@ MonoBehaviour:
   - {fileID: 8926484042661614826}
   - {fileID: 8926484042661614828}
   - {fileID: 8926484042661614832}
+  - {fileID: 8926484042661614834}
+  - {fileID: 8926484042661614846}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_UIInfos: {fileID: 114340500867371532}
   m_ParameterInfo:
-  - name: BrightSlashSpeed
-    path: BrightSlashSpeed
+  - name: BRIGHT SLASH
+    path: 
+    tooltip: 
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Bright Slash Scale
+    path: Bright Slash Scale
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -91,8 +114,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: BrightSlashSize
-    path: BrightSlashSize
+  - name: Bright Slash Size
+    path: Bright Slash Size
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -105,8 +128,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: BrightSlashScale
-    path: BrightSlashScale
+  - name: Bright Slash Speed
+    path: Bright Slash Speed
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -119,22 +142,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: SlashNoiseSpeed
-    path: SlashNoiseSpeed
-    tooltip: 
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: BrightColor
-    path: BrightColor
+  - name: Bright Color
+    path: Bright Color
     tooltip: 
     sheetType: m_Vector4f
     realType: Color
@@ -147,8 +156,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: BrightSlashDissolveAmount
-    path: BrightSlashDissolveAmount
+  - name: Bright Slash Dissolve Amount
+    path: Bright Slash Dissolve Amount
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -161,36 +170,21 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: DarkSlashSpeed
-    path: DarkSlashSpeed
+  - name: DARK SLASH
+    path: 
     tooltip: 
-    sheetType: m_Float
-    realType: Single
+    sheetType: 
+    realType: 
     defaultValue:
       m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 10
+        m_SerializableType: 
+      m_SerializableObject: 
     min: -Infinity
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: DarkSlashSize
-    path: DarkSlashSize
-    tooltip: 
-    sheetType: m_Float
-    realType: Single
-    defaultValue:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.9
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: DarkSlashScale
-    path: DarkSlashScale
+  - name: Dark Slash Scale
+    path: Dark Slash Scale
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -203,8 +197,36 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: DarkSlashColor
-    path: DarkSlashColor
+  - name: Dark Slash Size
+    path: Dark Slash Size
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.9
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Dark Slash Speed
+    path: Dark Slash Speed
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 10
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Dark Slash Color
+    path: Dark Slash Color
     tooltip: 
     sheetType: m_Vector4f
     realType: Color
@@ -217,8 +239,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: DarkSlashDissolveAmount
-    path: DarkSlashDissolveAmount
+  - name: Dark Slash Dissolve Amount
+    path: Dark Slash Dissolve Amount
     tooltip: 
     sheetType: m_Float
     realType: Single
@@ -231,22 +253,35 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: SlashLifetime
-    path: SlashLifetime
+  - name: GENERAL
+    path: 
     tooltip: 
-    sheetType: m_Float
-    realType: Single
+    sheetType: 
+    realType: 
     defaultValue:
       m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.3
+        m_SerializableType: 
+      m_SerializableObject: 
     min: -Infinity
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: SlashMesh
-    path: SlashMesh
+  - name: Slash Angle
+    path: Slash Angle
+    tooltip: 
+    sheetType: m_Vector3f
+    realType: Vector3
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":-90.0,"y":0.0,"z":0.0}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Slash Mesh
+    path: Slash Mesh
     tooltip: 
     sheetType: m_NamedObject
     realType: Mesh
@@ -259,16 +294,71 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: SlashAngle
-    path: SlashAngle
+  - name: Slash Lifetime
+    path: Slash Lifetime
     tooltip: 
-    sheetType: m_Vector3f
-    realType: Vector3
+    sheetType: m_Float
+    realType: Single
     defaultValue:
       m_Type:
-        m_SerializableType: UnityEngine.Vector3, UnityEngine.CoreModule, Version=0.0.0.0,
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.3
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Slash Noise Speed
+    path: Slash Noise Speed
+    tooltip: 
+    sheetType: m_Float
+    realType: Single
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 5
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: CURVES
+    path: 
+    tooltip: 
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Slash Dissolve Curve
+    path: Slash Dissolve Curve
+    tooltip: 
+    sheetType: m_AnimationCurve
+    realType: AnimationCurve
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":-90.0,"y":0.0,"z":0.0}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":-5.0673370361328129,"outTangent":-5.0673370361328129,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":25.0,"inTangent":66.04419708251953,"outTangent":66.04419708251953,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Slash Angle Curve
+    path: Slash Angle Curve
+    tooltip: 
+    sheetType: m_AnimationCurve
+    realType: AnimationCurve
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":1.0,"inTangent":-2.4863712787628176,"outTangent":-2.4863712787628176,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":0.07916520535945893,"outTangent":0.07916520535945893,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -1671,7 +1761,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614835}
 --- !u!114 &8926484042661614633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1757,7 +1848,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 123, y: 689}
+  m_UIPosition: {x: 85, y: 787}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -1956,10 +2047,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614642}
-  m_ExposedName: BrightSlashSpeed
+  m_ExposedName: Bright Slash Speed
   m_Exposed: 1
-  m_Order: 0
-  m_Category: 
+  m_Order: 2
+  m_Category: BRIGHT SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -2347,7 +2438,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614847}
 --- !u!114 &8926484042661614660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4258,7 +4350,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614835}
 --- !u!114 &8926484042661614723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4441,7 +4534,8 @@ MonoBehaviour:
       m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
   m_Direction: 0
-  m_LinkedSlots: []
+  m_LinkedSlots:
+  - {fileID: 8926484042661614847}
 --- !u!114 &8926484042661614729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4589,10 +4683,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614734}
-  m_ExposedName: BrightSlashScale
+  m_ExposedName: Bright Slash Scale
   m_Exposed: 1
-  m_Order: 2
-  m_Category: 
+  m_Order: 0
+  m_Category: BRIGHT SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4669,10 +4763,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614736}
-  m_ExposedName: SlashNoiseSpeed
+  m_ExposedName: Slash Noise Speed
   m_Exposed: 1
   m_Order: 3
-  m_Category: 
+  m_Category: GENERAL
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4757,10 +4851,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614738}
-  m_ExposedName: BrightColor
+  m_ExposedName: Bright Color
   m_Exposed: 1
-  m_Order: 4
-  m_Category: 
+  m_Order: 3
+  m_Category: BRIGHT SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4973,10 +5067,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614744}
-  m_ExposedName: DarkSlashScale
+  m_ExposedName: Dark Slash Scale
   m_Exposed: 1
-  m_Order: 8
-  m_Category: 
+  m_Order: 0
+  m_Category: DARK SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5053,10 +5147,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614746}
-  m_ExposedName: DarkSlashColor
+  m_ExposedName: Dark Slash Color
   m_Exposed: 1
-  m_Order: 9
-  m_Category: 
+  m_Order: 3
+  m_Category: DARK SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5269,10 +5363,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614752}
-  m_ExposedName: SlashLifetime
+  m_ExposedName: Slash Lifetime
   m_Exposed: 1
-  m_Order: 11
-  m_Category: 
+  m_Order: 2
+  m_Category: GENERAL
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5357,10 +5451,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614754}
-  m_ExposedName: SlashMesh
+  m_ExposedName: Slash Mesh
   m_Exposed: 1
-  m_Order: 12
-  m_Category: 
+  m_Order: 1
+  m_Category: GENERAL
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5445,10 +5539,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614758}
-  m_ExposedName: SlashAngle
+  m_ExposedName: Slash Angle
   m_Exposed: 1
-  m_Order: 13
-  m_Category: 
+  m_Order: 0
+  m_Category: GENERAL
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5635,10 +5729,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614817}
-  m_ExposedName: BrightSlashSize
+  m_ExposedName: Bright Slash Size
   m_Exposed: 1
   m_Order: 1
-  m_Category: 
+  m_Category: BRIGHT SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5715,10 +5809,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614819}
-  m_ExposedName: DarkSlashSize
+  m_ExposedName: Dark Slash Size
   m_Exposed: 1
-  m_Order: 7
-  m_Category: 
+  m_Order: 1
+  m_Category: DARK SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5795,10 +5889,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614821}
-  m_ExposedName: DarkSlashSpeed
+  m_ExposedName: Dark Slash Speed
   m_Exposed: 1
-  m_Order: 6
-  m_Category: 
+  m_Order: 2
+  m_Category: DARK SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -6012,10 +6106,10 @@ MonoBehaviour:
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614827}
-  m_ExposedName: DarkSlashDissolveAmount
+  m_ExposedName: Dark Slash Dissolve Amount
   m_Exposed: 1
-  m_Order: 10
-  m_Category: 
+  m_Order: 4
+  m_Category: DARK SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -6224,15 +6318,15 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614833}
-  m_ExposedName: BrightSlashDissolveAmount
+  m_ExposedName: Bright Slash Dissolve Amount
   m_Exposed: 1
-  m_Order: 5
-  m_Category: 
+  m_Order: 4
+  m_Category: BRIGHT SLASH
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -6288,3 +6382,179 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661614829}
+--- !u!114 &8926484042661614834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614835}
+  m_ExposedName: Slash Angle Curve
+  m_Exposed: 1
+  m_Order: 1
+  m_Category: CURVES
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_EnumValues: []
+  m_ValueFilter: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614835}
+      inputSlot: {fileID: 8926484042661614632}
+    position: {x: 117, y: 618}
+    expandedSlots: []
+    expanded: 1
+  - m_Id: 1
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614835}
+      inputSlot: {fileID: 8926484042661614722}
+    position: {x: 1860, y: 687}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614835}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614834}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":1.0,"inTangent":-2.4863712787628176,"outTangent":-2.4863712787628176,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":0.07916520535945893,"outTangent":0.07916520535945893,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614632}
+  - {fileID: 8926484042661614722}
+--- !u!114 &8926484042661614846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661614847}
+  m_ExposedName: Slash Dissolve Curve
+  m_Exposed: 1
+  m_Order: 0
+  m_Category: CURVES
+  m_Min:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_Max:
+    m_Type:
+      m_SerializableType: 
+    m_SerializableObject: 
+  m_IsOutput: 0
+  m_EnumValues: []
+  m_ValueFilter: 0
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614847}
+      inputSlot: {fileID: 8926484042661614728}
+    position: {x: 1775.2175, y: 1061.7391}
+    expandedSlots: []
+    expanded: 0
+  - m_Id: 1
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661614847}
+      inputSlot: {fileID: 8926484042661614659}
+    position: {x: -24.872519, y: 956.005}
+    expandedSlots: []
+    expanded: 0
+--- !u!114 &8926484042661614847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117b74c5c58db542bffe25c78fe92db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661614847}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614846}
+    m_Value:
+      m_Type:
+        m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":-5.0673370361328129,"outTangent":-5.0673370361328129,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":25.0,"inTangent":66.04419708251953,"outTangent":66.04419708251953,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    m_Space: 2147483647
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661614728}
+  - {fileID: 8926484042661614659}

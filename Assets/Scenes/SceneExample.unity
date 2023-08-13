@@ -10684,7 +10684,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1174114355}
-  m_LocalRotation: {x: -0, y: -0, z: 0.16633081, w: 0.98607004}
+  m_LocalRotation: {x: 0.06009413, y: -0.35626, z: 0.15509556, w: 0.91946334}
   m_LocalPosition: {x: 0.319, y: 0.925, z: 0.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10692,7 +10692,7 @@ Transform:
   - {fileID: 1854755249}
   m_Father: {fileID: 926200565}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 19.149}
+  m_LocalEulerAnglesHint: {x: 12.769, y: -40.741, z: 14.391}
 --- !u!1 &1177060687
 GameObject:
   m_ObjectHideFlags: 0
@@ -12060,19 +12060,19 @@ VisualEffect:
       - m_Value: 10
         m_Name: SlashSpeed
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 50
         m_Name: BrightSlashScale
         m_Overridden: 1
       - m_Value: 2
         m_Name: SlashNoiseSpeed
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 20
         m_Name: DarkSlashScale
         m_Overridden: 1
       - m_Value: 0.3
         m_Name: SlashLifetime
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 1
         m_Name: BrightSlashDissolveAmount
         m_Overridden: 1
       - m_Value: 0.5
@@ -12090,6 +12090,36 @@ VisualEffect:
       - m_Value: 10
         m_Name: BrightSlashSpeed
         m_Overridden: 1
+      - m_Value: 80
+        m_Name: Bright Slash Scale
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Bright Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Bright Slash Speed
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Bright Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 50
+        m_Name: Dark Slash Scale
+        m_Overridden: 1
+      - m_Value: 0.95
+        m_Name: Dark Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Dark Slash Speed
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Dark Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Slash Noise Speed
+        m_Overridden: 1
+      - m_Value: 0.3
+        m_Name: Slash Lifetime
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -12102,6 +12132,12 @@ VisualEffect:
       - m_Value: {x: 0, y: 0.023204388, z: 0.9926186, w: 1}
         m_Name: DarkSlashColor
         m_Overridden: 1
+      - m_Value: {x: 0, y: 16, z: 15.225082, w: 1}
+        m_Name: Bright Color
+        m_Overridden: 1
+      - m_Value: {x: 0.16105859, y: 0, z: 0.6226415, w: 1}
+        m_Name: Dark Slash Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -12109,7 +12145,59 @@ VisualEffect:
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: -5.067337
+            outSlope: -5.067337
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 25
+            inSlope: 66.0442
+            outSlope: 66.0442
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Dissolve Curve
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: -2.4863713
+            outSlope: -2.4863713
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0.079165205
+            outSlope: 0.079165205
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Angle Curve
+        m_Overridden: 1
     m_Gradient:
       m_Array: []
     m_NamedObject:
@@ -12117,6 +12205,10 @@ VisualEffect:
       - m_Value: {fileID: -9132845362894151416, guid: 7b0de649bb97e7948afa0acce75459da,
           type: 3}
         m_Name: SlashMesh
+        m_Overridden: 1
+      - m_Value: {fileID: -9132845362894151416, guid: 7b0de649bb97e7948afa0acce75459da,
+          type: 3}
+        m_Name: Slash Mesh
         m_Overridden: 1
     m_Bool:
       m_Array: []
@@ -13085,15 +13177,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543685868}
-  m_LocalRotation: {x: 0.01612676, y: 0.11088759, z: -0.0028926816, w: 0.99369794}
-  m_LocalPosition: {x: 0.582, y: 0.971, z: 1.871}
-  m_LocalScale: {x: 96.46812, y: 96.46812, z: 209.65062}
+  m_LocalRotation: {x: 0.64779145, y: 0.07844735, z: 0.07615995, w: 0.75393105}
+  m_LocalPosition: {x: 0.823, y: 0.971, z: 1.871}
+  m_LocalScale: {x: 96.46812, y: 178.96765, z: 209.65062}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1701695098}
   m_Father: {fileID: 926200565}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 1.873, y: 12.733, z: -0.125}
+  m_LocalEulerAnglesHint: {x: 74.76, y: 55.623, z: 55.436}
 --- !u!1 &1554364461
 GameObject:
   m_ObjectHideFlags: 0
@@ -14015,13 +14107,13 @@ VisualEffect:
       - m_Value: 10
         m_Name: SlashSpeed
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 50
         m_Name: BrightSlashScale
         m_Overridden: 1
       - m_Value: 2
         m_Name: SlashNoiseSpeed
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 20
         m_Name: DarkSlashScale
         m_Overridden: 1
       - m_Value: 10
@@ -14039,7 +14131,7 @@ VisualEffect:
       - m_Value: 1
         m_Name: BrightSlashSize
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 1
         m_Name: BrightSlashDissolveAmount
         m_Overridden: 1
       - m_Value: 1
@@ -14051,12 +14143,45 @@ VisualEffect:
       - m_Value: 0.5
         m_Name: DarkSlashDissolveAmount
         m_Overridden: 1
+      - m_Value: 80
+        m_Name: Bright Slash Scale
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Bright Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Bright Slash Speed
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Bright Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 50
+        m_Name: Dark Slash Scale
+        m_Overridden: 1
+      - m_Value: 0.95
+        m_Name: Dark Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Dark Slash Speed
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Dark Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 0.7
+        m_Name: Slash Lifetime
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Slash Noise Speed
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
       m_Array:
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: SlashAngle
+        m_Overridden: 1
+      - m_Value: {x: -90, y: 0, z: 0}
+        m_Name: Slash Angle
         m_Overridden: 1
     m_Vector4f:
       m_Array:
@@ -14066,6 +14191,12 @@ VisualEffect:
       - m_Value: {x: 0.05660379, y: 0, z: 0.032933135, w: 1}
         m_Name: DarkSlashColor
         m_Overridden: 1
+      - m_Value: {x: 0, y: 21.361254, z: 20.354704, w: 1}
+        m_Name: Bright Color
+        m_Overridden: 1
+      - m_Value: {x: 0.08068519, y: 0, z: 0.6132076, w: 1}
+        m_Name: Dark Slash Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -14073,7 +14204,59 @@ VisualEffect:
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: -5.067337
+            outSlope: -5.067337
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 25
+            inSlope: 66.0442
+            outSlope: 66.0442
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Dissolve Curve
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: -2.4863713
+            outSlope: -2.4863713
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0.079165205
+            outSlope: 0.079165205
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Angle Curve
+        m_Overridden: 1
     m_Gradient:
       m_Array: []
     m_NamedObject:
@@ -14081,6 +14264,10 @@ VisualEffect:
       - m_Value: {fileID: 3613567641014311022, guid: e8b6408a33a4ae44e9eb68e00b6d3378,
           type: 3}
         m_Name: SlashMesh
+        m_Overridden: 1
+      - m_Value: {fileID: 3613567641014311022, guid: e8b6408a33a4ae44e9eb68e00b6d3378,
+          type: 3}
+        m_Name: Slash Mesh
         m_Overridden: 1
     m_Bool:
       m_Array: []
@@ -14750,7 +14937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1854755248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.21}
+  m_LocalPosition: {x: 0.066, y: -0, z: 0.456}
   m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -14818,13 +15005,13 @@ VisualEffect:
       - m_Value: 10
         m_Name: SlashSpeed
         m_Overridden: 1
-      - m_Value: 5
+      - m_Value: 50
         m_Name: BrightSlashScale
         m_Overridden: 1
       - m_Value: 2
         m_Name: SlashNoiseSpeed
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 20
         m_Name: DarkSlashScale
         m_Overridden: 1
       - m_Value: 0.3
@@ -14833,7 +15020,7 @@ VisualEffect:
       - m_Value: 10
         m_Name: BrightSlashSpeed
         m_Overridden: 1
-      - m_Value: 2
+      - m_Value: 1
         m_Name: BrightSlashDissolveAmount
         m_Overridden: 1
       - m_Value: 1
@@ -14848,10 +15035,43 @@ VisualEffect:
       - m_Value: 1
         m_Name: DarkSlashDissolveAmount
         m_Overridden: 1
+      - m_Value: 80
+        m_Name: Bright Slash Scale
+        m_Overridden: 1
+      - m_Value: 1
+        m_Name: Bright Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Bright Slash Speed
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Bright Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 50
+        m_Name: Dark Slash Scale
+        m_Overridden: 1
+      - m_Value: 0.95
+        m_Name: Dark Slash Size
+        m_Overridden: 1
+      - m_Value: 10
+        m_Name: Dark Slash Speed
+        m_Overridden: 1
+      - m_Value: 0.1
+        m_Name: Dark Slash Dissolve Amount
+        m_Overridden: 1
+      - m_Value: 0.3
+        m_Name: Slash Lifetime
+        m_Overridden: 1
+      - m_Value: 2
+        m_Name: Slash Noise Speed
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: -90, y: 0, z: 0}
+        m_Name: Slash Angle
+        m_Overridden: 0
     m_Vector4f:
       m_Array:
       - m_Value: {x: 0, y: 17.443138, z: 23.96863, w: 1}
@@ -14860,6 +15080,12 @@ VisualEffect:
       - m_Value: {x: 0.015883973, y: 0, z: 0.3019608, w: 1}
         m_Name: DarkSlashColor
         m_Overridden: 1
+      - m_Value: {x: 0, y: 16, z: 15.225082, w: 1}
+        m_Name: Bright Color
+        m_Overridden: 1
+      - m_Value: {x: 0.083167806, y: 0, z: 0.6320754, w: 1}
+        m_Name: Dark Slash Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
@@ -14867,7 +15093,59 @@ VisualEffect:
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: -5.067337
+            outSlope: -5.067337
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 25
+            inSlope: 66.0442
+            outSlope: 66.0442
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Dissolve Curve
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: -2.4863713
+            outSlope: -2.4863713
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 0
+            inSlope: 0.079165205
+            outSlope: 0.079165205
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: Slash Angle Curve
+        m_Overridden: 1
     m_Gradient:
       m_Array: []
     m_NamedObject:
@@ -14875,6 +15153,10 @@ VisualEffect:
       - m_Value: {fileID: -9132845362894151416, guid: 7b0de649bb97e7948afa0acce75459da,
           type: 3}
         m_Name: SlashMesh
+        m_Overridden: 1
+      - m_Value: {fileID: -9132845362894151416, guid: 7b0de649bb97e7948afa0acce75459da,
+          type: 3}
+        m_Name: Slash Mesh
         m_Overridden: 1
     m_Bool:
       m_Array: []
