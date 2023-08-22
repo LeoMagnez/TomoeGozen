@@ -10,6 +10,10 @@ public class ArcherBehavior : MonoBehaviour
     public int animIndex;
 
     bool _hasAnimator;
+
+    [Header("VFX")]
+    public GameObject vfxSender;
+    public List<GameObject> vfxList = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -67,4 +71,17 @@ public class ArcherBehavior : MonoBehaviour
                 break;
         }
     }
+
+    //Animation Events
+
+    public void ArrowShotBuildUp()
+    {
+        GameObject temp = Instantiate(vfxList[0].gameObject, vfxSender.transform.position, vfxSender.transform.rotation);
+    }
+
+    public void ArrowShotRelease()
+    {
+        GameObject temp = Instantiate(vfxList[1].gameObject, vfxSender.transform.position, vfxSender.transform.rotation);
+    }
+
 }
