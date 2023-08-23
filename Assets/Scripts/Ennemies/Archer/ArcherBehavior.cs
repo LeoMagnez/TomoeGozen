@@ -75,19 +75,20 @@ public class ArcherBehavior : MonoBehaviour
         }
         else
         {
-            agent.isStopped = true;
-            Attack();
-            
-            
+
+            Attack(); 
         }
 
     }
 
     public void Attack()
     {
+        agent.isStopped = true;
         archerAnimController.SetBool("ArcherRun", false);
         archerAnimController.SetBool("ArcherDraw", true);
         transform.LookAt(playerTransform);
+        
+
     }
 
     public void AnimationTests()
