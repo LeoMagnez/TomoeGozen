@@ -49,11 +49,11 @@ public class ArcherBehavior : MonoBehaviour
         AnimationTests();
         
 
-        //Vector3 dir = (playerTransform.position - transform.position).normalized;
+        Vector3 dir = (playerTransform.position - transform.position).normalized;
 
         //dir = Quaternion.AngleAxis(45, Vector3.up) * dir;
 
-        Move(/*transform.position - (dir * runAwayDistance)*/ playerTransform.position.normalized);
+        Move(transform.position - (dir * runAwayDistance) /*playerTransform.position*/);
 
         if (instantiatedVFX != null)
         {
@@ -65,15 +65,19 @@ public class ArcherBehavior : MonoBehaviour
 
     public void Move(Vector3 pos)
     {
-        if (!isAttacking)
+        float maxDistance = Vector3.Distance(playerTransform.position, transform.position);
+
+        
+
+        if (!isAttacking && maxDistance <= 10)
         {
-            agent.SetDestination(-pos);
+            agent.SetDestination(pos);
             agent.isStopped = false;
             archerAnimController.SetBool("ArcherRun", true);
             archerAnimController.SetBool("ArcherDraw", false);
             archerAnimController.SetBool("ArcherShoot", false);
         }
-        else
+        else if(isAttacking)
         {
 
             Attack(); 
@@ -148,13 +152,17 @@ public class ArcherBehavior : MonoBehaviour
 
     public void ArrowShotRelease()
     {
+        
         GameObject temp = Instantiate(vfxList[1].gameObject, vfxSender.transform.position, vfxSender.transform.rotation);
+        archerAnimController.SetBool("ArcherDraw", false);
+        isAttacking = false;
     }
 
     public IEnumerator ArrowShotDelay()
     {
         yield return new WaitForSeconds(2f);
         archerAnimController.SetBool("ArcherShoot", true);
+        
     }
 
 

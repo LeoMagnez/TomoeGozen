@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterController))]
@@ -102,6 +103,12 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Attack();
         Dash();
+
+        //A RETIRER
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("SceneExample");
+        }
 
     }
 
@@ -261,6 +268,18 @@ public class PlayerMovement : MonoBehaviour
             playerAnimator.SetBool("Attack3", false);
         }
 
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        Debug.Log(other.name);
+        switch (other.name)
+        {
+            case "Arrow":
+                PlayerHealth.instance.playerHP -= 10;
+                PlayerHealth.instance.SetHealth(PlayerHealth.instance.playerHP);
+                break;
+        }
     }
 
     //ANIMATION EVENTS//
