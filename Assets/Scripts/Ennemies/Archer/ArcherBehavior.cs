@@ -18,6 +18,13 @@ public class ArcherBehavior : MonoBehaviour
 
     public bool isAttacking;
 
+    public int attackCounter;
+
+    bool canAttack;
+    public int attackChance;
+
+    bool randomAttackTicker;
+
     [Header("Animations")]
     public Animator archerAnimController;
     public int animIndex;
@@ -29,6 +36,8 @@ public class ArcherBehavior : MonoBehaviour
     public List<GameObject> vfxList = new List<GameObject>();
 
     private GameObject instantiatedVFX = null;
+    private GameObject arrowVolley = null;
+    bool arrowVolleyFolllow = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +55,6 @@ public class ArcherBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AnimationTests();
         
 
         Vector3 dir = (playerTransform.position - transform.position).normalized;
@@ -61,13 +69,37 @@ public class ArcherBehavior : MonoBehaviour
             instantiatedVFX.transform.rotation = vfxSender.transform.rotation;
         }
 
+        if(arrowVolley != null && arrowVolleyFolllow)
+        {
+            arrowVolley.transform.position = playerTransform.position;
+        }
+
+        if (!isAttacking)
+        {
+            archerAnimController.SetBool("ArcherDraw", false);
+            archerAnimController.SetBool("ArcherShoot", false);
+            archerAnimController.SetBool("ArcherDrawVolley", false);
+            archerAnimController.SetBool("ArcherShootVolley", false);
+        }
+
+        if (canAttack)
+        {
+            attackChance = Random.Range(0, 10);
+        }
+
     }
 
     public void Move(Vector3 pos)
     {
         float maxDistance = Vector3.Distance(playerTransform.position, transform.position);
 
-        
+        randomAttackTicker = true;
+
+        if (randomAttackTicker && !isAttacking)
+        {
+            attackCounter = Random.Range(0, 100);
+
+        }
 
         if (!isAttacking && maxDistance <= 10)
         {
@@ -76,68 +108,56 @@ public class ArcherBehavior : MonoBehaviour
             archerAnimController.SetBool("ArcherRun", true);
             archerAnimController.SetBool("ArcherDraw", false);
             archerAnimController.SetBool("ArcherShoot", false);
+            archerAnimController.SetBool("ArcherDrawVolley", false);
+            archerAnimController.SetBool("ArcherShootVolley", false);
+
+
         }
         else if(isAttacking)
         {
-
+            //randomAttackTicker = false;
             Attack(); 
+        }
+
+        if (!isAttacking && maxDistance >= 15)
+        {
+            archerAnimController.SetBool("ArcherRun", false);
+            archerAnimController.SetBool("ArcherDraw", false);
+            archerAnimController.SetBool("ArcherShoot", false);
+            archerAnimController.SetBool("ArcherDrawVolley", false);
+            archerAnimController.SetBool("ArcherShootVolley", false);
+            transform.LookAt(playerTransform);
+            canAttack = true;
+
+            if(attackChance >= 5)
+            {
+                StartCoroutine(WaitBeforeAttack());
+                isAttacking = true;
+                canAttack = false;
+            }
         }
 
     }
 
     public void Attack()
     {
+
+        
         agent.isStopped = true;
         archerAnimController.SetBool("ArcherRun", false);
-        archerAnimController.SetBool("ArcherDraw", true);
+
+        if(attackCounter <= 70)
+        {
+            archerAnimController.SetBool("ArcherDraw", true);
+        }
+        else if(attackCounter >= 71)
+        {
+            archerAnimController.SetBool("ArcherDrawVolley", true);
+        }
+        
         transform.LookAt(playerTransform);
         
 
-    }
-
-    public void AnimationTests()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            animIndex++;
-            if(animIndex > 3)
-            {
-                animIndex = 0;
-            }
-        }
-
-        switch (animIndex)
-        {
-            case 0:
-                archerAnimController.SetBool("ArcherRun", false);
-                archerAnimController.SetBool("ArcherDraw", false);
-                archerAnimController.SetBool("ArcherShoot", false);
-                break;
-
-            case 1:
-                archerAnimController.SetBool("ArcherRun", true);
-                archerAnimController.SetBool("ArcherDraw", false);
-                archerAnimController.SetBool("ArcherShoot", false);
-                break;
-
-            case 2:
-                archerAnimController.SetBool("ArcherRun", false);
-                archerAnimController.SetBool("ArcherDraw", true);
-                archerAnimController.SetBool("ArcherShoot", false);
-                break;
-
-            case 3:
-                archerAnimController.SetBool("ArcherRun", false);
-                archerAnimController.SetBool("ArcherDraw", false);
-                archerAnimController.SetBool("ArcherShoot", true);
-                break;
-
-            default:
-                archerAnimController.SetBool("ArcherRun", false);
-                archerAnimController.SetBool("ArcherDraw", false);
-                archerAnimController.SetBool("ArcherShoot", false);
-                break;
-        }
     }
 
 
@@ -147,7 +167,18 @@ public class ArcherBehavior : MonoBehaviour
     public void ArrowShotBuildUp()
     {
         instantiatedVFX = Instantiate(vfxList[0].gameObject, vfxSender.transform.position, vfxSender.transform.rotation);
-        StartCoroutine(ArrowShotDelay());
+
+        if(attackCounter <= 70)
+        {
+            StartCoroutine(ArrowShotDelay());
+        }
+        else if(attackCounter >= 71)
+        {
+            arrowVolley = Instantiate(vfxList[3].gameObject, playerTransform.position, playerTransform.rotation);
+            arrowVolleyFolllow = true;
+            StartCoroutine(ArrowVolleyDelay());
+        }
+        
     }
 
     public void ArrowShotRelease()
@@ -158,11 +189,37 @@ public class ArcherBehavior : MonoBehaviour
         isAttacking = false;
     }
 
+    public void ArrowVolleyRelease()
+    {
+        GameObject temp = Instantiate(vfxList[2].gameObject, vfxSender.transform.position, vfxSender.transform.rotation);
+        archerAnimController.SetBool("ArcherDrawVolley", false);
+        isAttacking = false;
+    }
+
     public IEnumerator ArrowShotDelay()
     {
         yield return new WaitForSeconds(2f);
         archerAnimController.SetBool("ArcherShoot", true);
         
+    }
+
+    public IEnumerator ArrowVolleyDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ArrowVolleyFollow());
+        archerAnimController.SetBool("ArcherShootVolley", true);
+    }
+
+    private IEnumerator ArrowVolleyFollow()
+    {
+        yield return new WaitForSeconds(0.7f);
+        arrowVolleyFolllow = false;
+    }
+
+    public IEnumerator WaitBeforeAttack()
+    {
+        yield return new WaitForSeconds(3f);
+        canAttack = true;
     }
 
 

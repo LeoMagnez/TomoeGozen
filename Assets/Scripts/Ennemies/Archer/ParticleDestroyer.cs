@@ -8,7 +8,7 @@ public class ParticleDestroyer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        elapsedTime = 5f;
+        elapsedTime = 10f;
     }
 
     // Update is called once per frame

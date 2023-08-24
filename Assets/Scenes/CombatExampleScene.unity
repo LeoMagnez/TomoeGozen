@@ -4490,12 +4490,15 @@ MonoBehaviour:
   playerTransform: {fileID: 819044380}
   baseAttackDamage: 10
   isAttacking: 0
+  attackCounter: 0
   archerAnimController: {fileID: 0}
   animIndex: 0
   vfxSender: {fileID: 268610610}
   vfxList:
   - {fileID: 1812595572618339850, guid: 90ed065d443a4b044943c7fe1b4d9375, type: 3}
   - {fileID: 1812595572618339850, guid: 700b826b3db98004b9fecfe05fab015f, type: 3}
+  - {fileID: 7939708553723714542, guid: 1551700c179cbc34a9ed72b26103476f, type: 3}
+  - {fileID: 6985847255572221126, guid: ae4f6fd7c0dfae34996b7cab732f1f53, type: 3}
 --- !u!195 &1619938511
 NavMeshAgent:
   m_ObjectHideFlags: 0
