@@ -6,42 +6,39 @@ using UnityEngine.AI;
 
 public class ArcherBehavior : MonoBehaviour
 {
+
+
     [Header("Movement")]
     [SerializeField] private float archerVelocity = 15.0f;
     [SerializeField] private NavMeshAgent agent = null;
     [SerializeField] private Transform playerTransform;
-
     private float runAwayDistance = 5f;
 
     [Header("Attack")]
     public float baseAttackDamage = 10;
-
     public bool isAttacking;
-
     public int attackCounter;
-
     bool canAttack;
     public int attackChance;
-
     bool randomAttackTicker;
 
     [Header("Animations")]
     public Animator archerAnimController;
     public int animIndex;
-
     bool _hasAnimator;
 
     [Header("VFX")]
     public GameObject vfxSender;
     public List<GameObject> vfxList = new List<GameObject>();
-
     private GameObject instantiatedVFX = null;
     private GameObject arrowVolley = null;
     bool arrowVolleyFolllow = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        if(agent == null)
+
+        if (agent == null)
         {
             if(!TryGetComponent(out agent))
             {
