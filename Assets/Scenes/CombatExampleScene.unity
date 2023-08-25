@@ -1442,6 +1442,11 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 819044380}
+    - target: {fileID: 5311758592569359552, guid: 4359a0772a5337643b000412c0d18d4e,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1003388832}
     - target: {fileID: 7570828540119071522, guid: 4359a0772a5337643b000412c0d18d4e,
         type: 3}
       propertyPath: m_IsTrigger
