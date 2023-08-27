@@ -284,6 +284,10 @@ public class PlayerMovement : MonoBehaviour
                 PlayerHealth.instance.playerHP -= 2;
                 PlayerHealth.instance.SetHealth(PlayerHealth.instance.playerHP);
                 break;
+            case "BigSlash":
+                PlayerHealth.instance.playerHP -= 10;
+                PlayerHealth.instance.SetHealth(PlayerHealth.instance.playerHP);
+                break;
         }
     }
 
